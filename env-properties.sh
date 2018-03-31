@@ -1,0 +1,5 @@
+export DB_NAME='MYSQL'
+export DB_CONN_URL='jdbc:mysql://localhost:3306/movie_db?autoReconnect=true&useSSL=false'
+export DB_USER='root'
+export DB_PASSWORD='root'
+export JPA_DIALECT_CLASS='org.hibernate.dialect.MySQLDialect'
