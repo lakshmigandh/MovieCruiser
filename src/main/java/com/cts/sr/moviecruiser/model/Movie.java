@@ -5,7 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-import data.MovieDTO;
+import com.cts.sr.moviecruiser.data.MovieDTO;
 
 @Entity
 @Table(name = "movie")

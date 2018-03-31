@@ -6,12 +6,11 @@ import java.util.List;
 
 import org.springframework.web.client.RestTemplate;
 
+import com.cts.sr.moviecruiser.data.MovieDTO;
 import com.fasterxml.jackson.core.JsonParser.Feature;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-
-import data.MovieDTO;
 
 public class MovieUtils {
 	

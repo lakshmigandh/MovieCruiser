@@ -18,10 +18,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.cts.sr.moviecruiser.dao.IMovieDAO;
+import com.cts.sr.moviecruiser.data.MovieDTO;
 import com.cts.sr.moviecruiser.model.Movie;
 import com.cts.sr.moviecruiser.utils.AppLogger;
-
-import data.MovieDTO;
 
 @Controller
 @RequestMapping(path = "/movie")

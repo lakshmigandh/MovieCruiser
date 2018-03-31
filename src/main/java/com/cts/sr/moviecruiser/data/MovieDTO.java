@@ -1,4 +1,4 @@
-package data;
+package com.cts.sr.moviecruiser.data;
 
 import com.cts.sr.moviecruiser.model.Movie;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;

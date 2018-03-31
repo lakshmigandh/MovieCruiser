@@ -14,10 +14,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.cts.sr.moviecruiser.data.MovieDTO;
 import com.cts.sr.moviecruiser.utils.AppLogger;
 import com.cts.sr.moviecruiser.utils.MovieUtils;
-
-import data.MovieDTO;
 
 @Controller
 @RequestMapping(path = "/movie/api/")
