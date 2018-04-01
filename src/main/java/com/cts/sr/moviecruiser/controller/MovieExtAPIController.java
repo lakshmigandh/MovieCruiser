@@ -18,15 +18,24 @@ import com.cts.sr.moviecruiser.data.MovieDTO;
 import com.cts.sr.moviecruiser.utils.AppLogger;
 import com.cts.sr.moviecruiser.utils.MovieUtils;
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.SwaggerDefinition;
+import io.swagger.annotations.Tag;
+
 @Controller
 @RequestMapping(path = "/movie/api/")
 @CrossOrigin(origins = "*")
+@Api(tags={"External Movie API Controller(TMDB)"})
+@SwaggerDefinition(tags={@Tag(name="External Movie API Controller(TMDB)",description="This API acts as a wrapper to an external movie api(TMDB) for getting details about movies")})
 public class MovieExtAPIController {
 	
 	@Autowired
 	private ConfigurableEnvironment env;
 	
+	
 	@GetMapping(path = "/search/{searchString}")
+	@ApiOperation(value="Search Movies By Keyword",notes="This operation returns the matching movies given a search keyword")
 	public @ResponseBody ResponseEntity<List<MovieDTO>> search(@PathVariable("searchString") String searchString) {
 		List<MovieDTO> movieList = new ArrayList<MovieDTO>();
 		String endPointURL = MovieUtils.getAbsoluteURL(env.getProperty("SEARCH_URL"), new Object[]{searchString});
@@ -39,7 +48,9 @@ public class MovieExtAPIController {
 		return new ResponseEntity<List<MovieDTO>>(movieList, HttpStatus.OK);
 	}
 	
+	
 	@GetMapping(path = "/upcoming")
+	@ApiOperation(value="Get All Upcoming Movies",notes="This operation returns all upcoming movies")
 	public @ResponseBody ResponseEntity<List<MovieDTO>> upcoming() {
 		List<MovieDTO> movieList = new ArrayList<MovieDTO>();
 		String endPointURL = MovieUtils.getAbsoluteURL(env.getProperty("UPCOMING_URL"), new Object[]{});
@@ -52,7 +63,9 @@ public class MovieExtAPIController {
 		return new ResponseEntity<List<MovieDTO>>(movieList, HttpStatus.OK);
 	}
 	
+	
 	@GetMapping(path = "/trending")
+	@ApiOperation(value="Get All Trending Movies",notes="This operation returns all trending movies")
 	public @ResponseBody ResponseEntity<List<MovieDTO>> trending() {
 		List<MovieDTO> movieList = new ArrayList<MovieDTO>();
 		String endPointURL = MovieUtils.getAbsoluteURL(env.getProperty("TRENDING_URL"), new Object[]{});
@@ -65,7 +78,9 @@ public class MovieExtAPIController {
 		return new ResponseEntity<List<MovieDTO>>(movieList, HttpStatus.OK);
 	}
 	
+	
 	@GetMapping(path = "/recommended/{id:[0-9]+}")
+	@ApiOperation(value="Get Recommended Movies By Movie ID",notes="This operation returns all recoemmended movies related to a movie")
 	public @ResponseBody ResponseEntity<List<MovieDTO>> recommended(@PathVariable("id") int id) {
 		List<MovieDTO> movieList = new ArrayList<MovieDTO>();
 		String endPointURL = MovieUtils.getAbsoluteURL(env.getProperty("RECOMMENDED_URL"), new Object[]{id});

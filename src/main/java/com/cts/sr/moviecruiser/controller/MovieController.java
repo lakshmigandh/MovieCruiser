@@ -22,15 +22,24 @@ import com.cts.sr.moviecruiser.data.MovieDTO;
 import com.cts.sr.moviecruiser.model.Movie;
 import com.cts.sr.moviecruiser.utils.AppLogger;
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.SwaggerDefinition;
+import io.swagger.annotations.Tag;
+
 @Controller
 @RequestMapping(path = "/movie")
 @CrossOrigin(origins = "*")
+@Api(tags={"Movie Controller"})
+@SwaggerDefinition(tags={@Tag(name="Movie Controller",description="This API provides opertaions for storing and retrieving in the movie repository")})
 public class MovieController {
 	
 	@Autowired
 	private IMovieDAO movieDAO;
 	
+	
 	@PostMapping
+	@ApiOperation(value="Save Movie",notes="This operation creates a new Movie")
 	public @ResponseBody ResponseEntity<?> saveMovie(@RequestBody MovieDTO movie) {
 		try {
 			Movie movieModel = new Movie();
@@ -45,6 +54,7 @@ public class MovieController {
 	}
 	
 	@PutMapping
+	@ApiOperation(value="Update Movie",notes="This operation updates an already existing Movie")
 	public @ResponseBody ResponseEntity<?> updateMovie(@RequestBody MovieDTO movie) {
 		try {
 			Movie movieModel = movieDAO.getMovieById(movie.getId());
@@ -61,6 +71,7 @@ public class MovieController {
 	}
 	
 	@DeleteMapping(value = "/{id:[0-9]+}")
+	@ApiOperation(value="Delete Movie",notes="This operation deletes an already existing Movie")
 	public @ResponseBody ResponseEntity<?> deleteMovie(@PathVariable("id") int id) {
 		try {
 			movieDAO.deleteMovie(id);
@@ -72,6 +83,7 @@ public class MovieController {
 	}
 	
 	@GetMapping(path = "/{id:[0-9]+}")
+	@ApiOperation(value="Get Movie By ID",notes="This operation retrieves an already existing Movie by ID")
 	public @ResponseBody ResponseEntity<?> getMovieById(@PathVariable("id") int id) {
 		MovieDTO movie = new MovieDTO();
 		try {
@@ -85,6 +97,7 @@ public class MovieController {
 	}
 	
 	@GetMapping(path = "/all")
+	@ApiOperation(value="Get All Movies",notes="This operation retrieves all existing Movies")
 	public @ResponseBody ResponseEntity<?> getAllMovies() {
 		List<MovieDTO> movies = new ArrayList<MovieDTO>();
 		try {
