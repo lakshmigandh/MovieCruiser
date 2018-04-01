@@ -116,6 +116,8 @@ public class Movie {
 
 	public void copy(MovieDTO dto){
 		
+		if(dto.getId() != null)
+			this.setId(dto.getId());
 		if(dto.getName() != null)
 			this.setName(dto.getName());
 		if(dto.getPosterPath() != null)

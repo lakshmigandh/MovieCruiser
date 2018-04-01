@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -24,14 +23,11 @@ import com.cts.sr.moviecruiser.utils.AppLogger;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import io.swagger.annotations.SwaggerDefinition;
-import io.swagger.annotations.Tag;
 
 @Controller
 @RequestMapping(path = "/movie")
 @CrossOrigin(origins = "*")
 @Api(tags={"Movie Controller"})
-@SwaggerDefinition(tags={@Tag(name="Movie Controller",description="This API provides opertaions for storing and retrieving in the movie repository")})
 public class MovieController {
 	
 	@Autowired
@@ -39,7 +35,7 @@ public class MovieController {
 	
 	
 	@PostMapping
-	@ApiOperation(value="Save Movie",notes="This operation creates a new Movie")
+	@ApiOperation(value="Save or Update Movie",notes="This operation creates a new Movie or updates an existing Movie")
 	public @ResponseBody ResponseEntity<?> saveMovie(@RequestBody MovieDTO movie) {
 		try {
 			Movie movieModel = new Movie();
@@ -49,23 +45,6 @@ public class MovieController {
 		} catch (Exception e) {
 			AppLogger.error("Exception occurred in saveMovie", e);
 			return new ResponseEntity<String>(e.getMessage(), HttpStatus.CONFLICT);
-		}
-		return new ResponseEntity<MovieDTO>(movie, HttpStatus.CREATED);
-	}
-	
-	@PutMapping
-	@ApiOperation(value="Update Movie",notes="This operation updates an already existing Movie")
-	public @ResponseBody ResponseEntity<?> updateMovie(@RequestBody MovieDTO movie) {
-		try {
-			Movie movieModel = movieDAO.getMovieById(movie.getId());
-			if(movieModel == null)
-				return new ResponseEntity<Integer>(-1, HttpStatus.NOT_FOUND);
-			movieModel.copy(movie);
-			movieDAO.saveMovie(movieModel);
-			
-		} catch (Exception e) {
-			AppLogger.error("Exception occurred in updateMovie", e);
-			return new ResponseEntity<Integer>(-1, HttpStatus.NOT_FOUND);
 		}
 		return new ResponseEntity<MovieDTO>(movie, HttpStatus.CREATED);
 	}

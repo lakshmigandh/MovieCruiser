@@ -20,14 +20,11 @@ import com.cts.sr.moviecruiser.utils.MovieUtils;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import io.swagger.annotations.SwaggerDefinition;
-import io.swagger.annotations.Tag;
 
 @Controller
 @RequestMapping(path = "/movie/api/")
 @CrossOrigin(origins = "*")
 @Api(tags={"External Movie API Controller(TMDB)"})
-@SwaggerDefinition(tags={@Tag(name="External Movie API Controller(TMDB)",description="This API acts as a wrapper to an external movie api(TMDB) for getting details about movies")})
 public class MovieExtAPIController {
 	
 	@Autowired
