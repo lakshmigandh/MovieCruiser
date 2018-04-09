@@ -16,9 +16,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.cts.sr.moviecruiser.dao.IMovieDAO;
 import com.cts.sr.moviecruiser.data.MovieDTO;
 import com.cts.sr.moviecruiser.model.Movie;
+import com.cts.sr.moviecruiser.service.MovieService;
 import com.cts.sr.moviecruiser.utils.AppLogger;
 
 import io.swagger.annotations.Api;
@@ -31,7 +31,7 @@ import io.swagger.annotations.ApiOperation;
 public class MovieController {
 	
 	@Autowired
-	private IMovieDAO movieDAO;
+	private MovieService movieService;
 	
 	
 	@PostMapping
@@ -40,7 +40,7 @@ public class MovieController {
 		try {
 			Movie movieModel = new Movie();
 			movieModel.copy(movie);
-			movieDAO.saveMovie(movieModel);
+			movieService.saveMovie(movieModel);
 			
 		} catch (Exception e) {
 			AppLogger.error("Exception occurred in saveMovie", e);
@@ -53,7 +53,7 @@ public class MovieController {
 	@ApiOperation(value="Delete Movie",notes="This operation deletes an already existing Movie")
 	public @ResponseBody ResponseEntity<?> deleteMovie(@PathVariable("id") int id) {
 		try {
-			movieDAO.deleteMovie(id);
+			movieService.deleteMovie(id);
 		} catch (Exception e) {
 			AppLogger.error("Exception occurred in deleteMovie", e);
 			return new ResponseEntity<Integer>(-1, HttpStatus.OK);
@@ -66,7 +66,7 @@ public class MovieController {
 	public @ResponseBody ResponseEntity<?> getMovieById(@PathVariable("id") int id) {
 		MovieDTO movie = new MovieDTO();
 		try {
-			Movie movieModel = movieDAO.getMovieById(id);
+			Movie movieModel = movieService.getMovieById(id);
 			movie.copy(movieModel);
 		} catch (Exception e) {
 			AppLogger.error("Exception occurred in getMovieById", e);
@@ -80,7 +80,7 @@ public class MovieController {
 	public @ResponseBody ResponseEntity<?> getAllMovies() {
 		List<MovieDTO> movies = new ArrayList<MovieDTO>();
 		try {
-			List<Movie> movieModels = movieDAO.getAllMovies();
+			List<Movie> movieModels = movieService.getAllMovies();
 			movieModels.forEach(movie -> {
 				MovieDTO movieDTO = new MovieDTO();
 				movieDTO.copy(movie);

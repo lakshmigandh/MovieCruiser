@@ -23,8 +23,8 @@ import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 
 import com.cts.sr.moviecruiser.controller.MovieController;
-import com.cts.sr.moviecruiser.dao.IMovieDAO;
 import com.cts.sr.moviecruiser.model.Movie;
+import com.cts.sr.moviecruiser.service.MovieService;
 import com.cts.sr.moviecruiser.utils.MovieUtils;
 
 @RunWith(SpringRunner.class)
@@ -35,7 +35,7 @@ public class MovieControllerTest {
 	private MockMvc mockMvc;
 	
 	@MockBean
-	private IMovieDAO dao;
+	private MovieService dao;
 	
 	private Movie movie;
 	

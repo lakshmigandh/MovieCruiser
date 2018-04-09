@@ -1,4 +1,4 @@
-package com.cts.sr.moviecruiser.dao;
+package com.cts.sr.moviecruiser.service;
 
 import java.util.List;
 import java.util.Optional;
@@ -13,7 +13,7 @@ import com.cts.sr.moviecruiser.repository.MovieRepository;
 
 @Repository
 @Transactional
-public class MovieDAOImpl implements IMovieDAO {
+public class MovieServiceImpl implements MovieService {
 	
 	
 	@Autowired
