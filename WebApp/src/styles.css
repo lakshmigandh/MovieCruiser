@@ -1,0 +1,372 @@
+/* You can add global styles to this file, and also import other style files */
+body{
+    background-color: #f4f4f4;
+    color: #000;
+    font-family: 'Source Sans Pro', Arial, sans-serif;
+    font-size: 1em;
+    -webkit-font-smoothing: antialiased;
+}
+img{
+-khtml-user-select: none;
+    -o-user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+}
+.app-header-bg,.app-footer-bg{
+    background-color: #21d192;
+}
+.media-el{
+    width: 1000px;
+    margin: 0 auto;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    min-height: 500px;
+}
+.mcard {
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    background-color: #fff;
+}
+div.results.flex{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+div.results.flex div.item {
+    margin-top: 30px;
+    color: #000;
+}
+
+div.results.flex.results_poster_mcard, div.results.flex.results_profile_mcard {
+    justify-content: space-between;
+}
+
+div.results.flex.results div.item:nth-child(-n+4), div.results.flex.results_backdrop_mcard div.item:nth-child(-n+2), div.results.flex.results_poster_mcard div.item:nth-child(-n+2) {
+    margin-top: 16px;
+}
+
+div.info_dtl .title{
+    font-size: 1.9em !important;
+}
+
+div.info_dtl .overview{
+    font-size: 1.2em !important;
+}
+
+div.item.mcard p.overview {
+    word-wrap: break-word;
+    white-space: normal;
+    color: #4d4d4d;
+    font-size: 0.9em;
+    line-height: 1.2em;
+    margin-top: 15px;
+}
+
+div.item p {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding: 0;
+    width: 100%;
+    line-height: 1.2em;
+    margin: 0;
+}
+
+div.item.poster {
+    width: 185px;
+}
+
+div.item.poster.mcard {
+    display: flex;
+    align-items: center;
+}
+div.item.mcard {
+    width: 483px;
+    background-color: #fff;
+    box-sizing: border-box;
+}
+
+div.item.poster.mcard a.image_content {
+    width: 185px;
+}
+div.item.poster div.image_content, div.item.backdrop div.image_content {
+    height: 278px;
+    line-height: 0;
+}
+div.item.poster.mcard div.info {
+    width: 298px;
+    height: 278px;
+    position: relative;
+    box-sizing: border-box;
+    padding: 10px 16px 16px 16px;
+    overflow: hidden;
+}
+div.item.poster.mcard div.info_dtl {
+    position: relative;
+    box-sizing: border-box;
+    padding: 10px 16px 16px 16px;
+    overflow: hidden;
+}
+div.item.mcard div.wrapper {
+    display: flex;
+}
+
+div.item.mcard div.wrapper {
+    display: flex;
+}
+
+div.item.mcard div.wrapper div.flex {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+div.item p a, div.item a {
+    color: #000;
+    font-weight: 400;
+}
+
+div.item.mcard div.wrapper a {
+    width: 100%;
+    display: block;
+    font-weight: 600;
+    font-size: 1.1em;
+    line-height: 1.1em;
+}
+
+div.item.mcard div.wrapper span {
+    color: rgba(0,0,0,0.6);
+    line-height: 1em;
+}
+
+.favorite_icon {
+    font-size: 2em;
+    margin-top: 20px;
+}
+
+span.subdtl_movie {
+    width: 100%;
+}
+
+div.movie_dtl_wrapper{
+    padding: 20px 0 20px 0;
+    position: relative;
+}
+
+/**** User Component*****/
+.userForm{
+    margin: auto;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+@-webkit-keyframes HeroBG {
+    0% {
+      background-position: 0 0;
+    }
+    50% {
+      background-position: 100% 0;
+    }
+    100% {
+      background-position: 0 0;
+    }
+  }
+  
+  @keyframes HeroBG {
+    0% {
+      background-position: 0 0;
+    }
+    50% {
+      background-position: 100% 0;
+    }
+    100% {
+      background-position: 0 0;
+    }
+  }
+  
+  
+  .panel {
+    border-radius: 5px;
+  }
+  label {
+    font-weight: 300;
+  }
+  .panel-login {
+     background-color: #fff;
+     border: none;
+    -webkit-box-shadow: 0px 0px 49px 14px rgba(188,190,194,0.39);
+    -moz-box-shadow: 0px 0px 49px 14px rgba(188,190,194,0.39);
+    box-shadow: 0px 0px 49px 14px rgba(188,190,194,0.39);
+    }
+  .panel-login .checkbox input[type=checkbox]{
+    margin-left: 0px;
+  }
+  .panel-login .checkbox label {
+    padding-left: 25px;
+    font-weight: 300;
+    display: inline-block;
+    position: relative;
+  }
+  .panel-login .checkbox {
+   padding-left: 20px;
+  }
+  .panel-login .checkbox label::before {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    width: 17px;
+    height: 17px;
+    left: 0;
+    margin-left: 0px;
+    border: 1px solid #cccccc;
+    border-radius: 3px;
+    background-color: #fff;
+    -webkit-transition: border 0.15s ease-in-out, color 0.15s ease-in-out;
+    -o-transition: border 0.15s ease-in-out, color 0.15s ease-in-out;
+    transition: border 0.15s ease-in-out, color 0.15s ease-in-out;
+  }
+  .panel-login .checkbox label::after {
+    display: inline-block;
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    left: 0;
+    top: 0;
+    margin-left: 0px;
+    padding-left: 3px;
+    padding-top: 1px;
+    font-size: 11px;
+    color: #555555;
+  }
+  .panel-login .checkbox input[type="checkbox"] {
+    opacity: 0;
+  }
+  .panel-login .checkbox input[type="checkbox"]:focus + label::before {
+    outline: thin dotted;
+    outline: 5px auto -webkit-focus-ring-color;
+    outline-offset: -2px;
+  }
+  .panel-login .checkbox input[type="checkbox"]:checked + label::after {
+    font-family: 'FontAwesome';
+    content: "\f00c";
+  }
+  .panel-login>.panel-heading .tabs{
+    padding: 0;
+  }
+  .panel-login h2{
+    font-size: 20px;
+    font-weight: 600;
+    margin: 30px;
+  }
+  .panel-login>.panel-heading {
+    color: #848c9d;
+    background-color: #e8e9ec;
+    border-color: #fff;
+    text-align:center;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+    border-bottom: 0px;
+    padding: 0px 15px;
+  }
+  .panel-login .form-group {
+    padding: 0 30px;
+  }
+  .panel-login>.panel-heading .login {
+    padding: 20px 30px;
+    border-bottom-leftt-radius: 5px;
+  }
+  .panel-login>.panel-heading .register {
+    padding: 20px 30px;
+    background: #21d192;
+    border-bottom-right-radius: 5px;
+  }
+  .panel-login>.panel-heading a{
+    text-decoration: none;
+    color: #666;
+    font-weight: 300;
+    font-size: 16px;
+    -webkit-transition: all 0.1s linear;
+    -moz-transition: all 0.1s linear;
+    transition: all 0.1s linear;
+  }
+  .panel-login>.panel-heading a#register-form-link {
+    color: #fff;
+    width: 100%;
+    text-align: right;
+  }
+  .panel-login>.panel-heading a#login-form-link {
+    width: 100%;
+    text-align: left;
+  }
+  
+  .panel-login input[type="text"],.panel-login input[type="email"],.panel-login input[type="password"] {
+    height: 45px;
+    border: 0;
+    font-size: 16px;
+    -webkit-transition: all 0.1s linear;
+    -moz-transition: all 0.1s linear;
+    transition: all 0.1s linear;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    border-bottom: 1px solid #e7e7e7;
+    border-radius: 0px;
+    padding: 6px 0px;
+  }
+  .panel-login input:hover,
+  .panel-login input:focus {
+    outline:none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    border-color: #ccc;
+  }
+  .btn-login {
+    background-color: #E8E9EC;
+    outline: none;
+    color: #2D3B55;
+    font-size: 14px;
+    height: auto;
+    font-weight: normal;
+    padding: 14px 0;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 0px;
+    box-shadow: none;
+  }
+  .btn-login:hover,
+  .btn-login:focus {
+    color: #fff;
+    background-color: #21d192;
+  }
+  .forgot-password {
+    text-decoration: underline;
+    color: #888;
+  }
+  .forgot-password:hover,
+  .forgot-password:focus {
+    text-decoration: underline;
+    color: #666;
+  }
+  
+  .btn-register {
+    background-color: #E8E9EC;
+    outline: none;
+    color: #2D3B55;
+    font-size: 14px;
+    height: auto;
+    font-weight: normal;
+    padding: 14px 0;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 0px;
+    box-shadow: none;
+  }
+  .btn-register:hover,
+  .btn-register:focus {
+    color: #fff;
+    background-color: #21d192;
+  }
+
+  
+  /******User Component Ends*******/

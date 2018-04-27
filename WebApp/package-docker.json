@@ -1,0 +1,13 @@
+{
+  "name": "web",
+  "version": "1.0.0",
+  "description": "Movie Cruiser Application",
+  "private":true,
+  "dependencies": {
+    "http-server": "^0.11.1"
+  },
+  "devDependencies": {},
+  "author": "",
+  "license": "ISC"
+}
+
