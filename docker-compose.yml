@@ -2,20 +2,34 @@ version: '2'
 services: 
   user-app:
    image: mc-usersvc
+   env_file:
+      - .env
    restart: always
    network_mode: host
    ports:
     - '8081:8081'
+   environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_USER: root
+      MYSQL_PASSWORD: root
+      MYSQL_DATABASE: moviedb
    expose:
     - 8081
    depends_on:
     - mc-mysql
   movie-app:
     image: mc-moviesvc
+    env_file:
+      - .env
     restart: always
     network_mode: host
     ports:
       - '8080:8080'
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_USER: root
+      MYSQL_PASSWORD: root
+      MYSQL_DATABASE: moviedb
     expose:
       - 8080
     depends_on:
@@ -32,7 +46,7 @@ services:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_USER: root
       MYSQL_PASSWORD: root
-      MYSQL_DATABASE: movieDb
+      MYSQL_DATABASE: moviedb
   mc-frontend:
     image: 'mc-frontend'
     restart: always
