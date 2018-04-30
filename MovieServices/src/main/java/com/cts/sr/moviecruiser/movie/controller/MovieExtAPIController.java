@@ -22,7 +22,7 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 
 @Controller
-@RequestMapping(path = "/movie/api/")
+@RequestMapping(path = "/movieapi/")
 @CrossOrigin(origins = "*")
 @Api(tags={"External Movie API Controller(TMDB)"})
 public class MovieExtAPIController {

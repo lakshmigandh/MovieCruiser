@@ -23,22 +23,22 @@ public class MovieExtAPIControllerTest {
 	
 	@Test
 	public void testSearchEndPoint() throws Exception {
-		mockMvc.perform(get("/movie/api/search/Shawshank")).andExpect(status().isOk());
+		mockMvc.perform(get("/movieapi/search/Shawshank")).andExpect(status().isOk());
 	}
 	
 	@Test
 	public void testUpcoming() throws Exception {
-		mockMvc.perform(get("/movie/api/upcoming/")).andExpect(status().isOk());
+		mockMvc.perform(get("/movieapi/upcoming/")).andExpect(status().isOk());
 	}
 	
 	@Test
 	public void testTrending() throws Exception {
-		mockMvc.perform(get("/movie/api/trending/")).andExpect(status().isOk());
+		mockMvc.perform(get("/movieapi/trending/")).andExpect(status().isOk());
 	}
 	
 	@Test
 	public void testRecommended() throws Exception {
-		mockMvc.perform(get("/movie/api/recommended/286")).andExpect(status().isOk());
+		mockMvc.perform(get("/movieapi/recommended/286")).andExpect(status().isOk());
 	}
 	
 	
