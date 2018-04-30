@@ -1,6 +1,6 @@
 image: 'maven:3-jdk-8'
 before_script:
- - source ./env-props.sh
+ - source ./project.sh
 stages:
  - test
  - build
