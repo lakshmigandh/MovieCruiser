@@ -1,7 +1,8 @@
 #!/bin/bash
+
 cd MovieServices
-source ../env-props.sh
+source ../env-variable.sh
 cd ..
 cd UserServices
-source ../env-props.sh
+source ../env-variable.sh
 cd ..

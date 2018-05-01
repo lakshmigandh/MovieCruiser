@@ -27,14 +27,14 @@ services:
     restart: always
     network_mode: host
     expose:
-      - 3306
+      - 3306q
     ports:
       - '3306:3306'
     environment:
-      MYSQL_ROOT_PASSWORD: root123
+      MYSQL_ROOT_PASSWORD: root
       MYSQL_USER: root
-      MYSQL_PASSWORD: root123
-      MYSQL_DATABASE: movieDb
+      MYSQL_PASSWORD: root
+      MYSQL_DATABASE: moviedb
   mc-frontend:
     image: 'mc-frontend'
     restart: always
