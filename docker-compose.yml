@@ -31,10 +31,10 @@ services:
     ports:
       - '3306:3306'
     environment:
-      MYSQL_ROOT_PASSWORD: root
-      MYSQL_USER: root
-      MYSQL_PASSWORD: root
-      MYSQL_DATABASE: moviedb
+      MYSQL_ROOT_PASSWORD: root123
+      MYSQL_PASSWORD: root123
+      MYSQL_USER: app-root
+      MYSQL_DATABASE: movieDb
   mc-frontend:
     image: 'mc-frontend'
     restart: always
